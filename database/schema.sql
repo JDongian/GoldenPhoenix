@@ -1,8 +1,10 @@
 CREATE TABLE gallery_images(
  image_id       serial  PRIMARY KEY,
- dress_id       integer,
+ dressname      text,
+ color          text,
  category       text,
  filename       text,
+ thumbfile      text,
  location       text,
  description    text
 );

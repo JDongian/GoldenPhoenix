@@ -1,44 +1,16 @@
 import os
 import re
-import psycopg2
+from dbtools import get_cursor, delete_db, init_db, insert_db
 
 image_dir = "/srv/GoldenPhoenix/assets/img/gallery"
 
-def get_cursor(level=0, db="goldenphoenix", user=os.getlogin()):
-    """Returns a cursor connected to the given database using given
-    credentials. Default level 0 isolation level (autocommit on).
-    """
-    try:
-        conn = psycopg2.connect("dbname={0} user={1}".format(db, user))
-        #Execute all actions immediately
-        #TODO: properly handle transacitons
-        conn.set_isolation_level(level)
-        print("Successful database connection.")
-    except:
-        print("Database connection failed.")
-    return conn.cursor()
-
-def delete_db(c):
-    """Delete all data.
-    """
-    c.execute(open("delete.sql", 'r').read())
-
-def init_db(c):
-    """Create tables.
-    """
-    c.execute(open("schema.sql", 'r').read())
-
-def insert_db(dress, category, filename, location, description):
-    data = {'dress': dress,
-            'category': category,
-            'filename': filename,
-            'location': location,
-            'description': description}
-    c.execute(open("insert_image.sql", 'r').read(), data)
+def get_color(f):
+    print f
+    return "red"
 
 if __name__ == "__main__":
     c = get_cursor()
-    #Delet the database and recreate it using the existing schema.
+    #Delete the database and recreate it using the existing schema.
     delete_db(c)
     init_db(c)
     print("Database recreated.")
@@ -48,5 +20,8 @@ if __name__ == "__main__":
             continue
         else:
             for filename in path[2]:
-                insert_db(dress, re.findall('\w+$', path[0])[0], filename, path[0], "No description.");
+                insert_db(c, dress, get_color(path[0]+'/'+filename),
+                          re.findall('\w+$', path[0])[0], filename,
+                          re.findall('assets.*$', path[0])[0],
+                          "No description.");
                 dress += 1

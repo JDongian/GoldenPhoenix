@@ -83,7 +83,6 @@
                           <li><a href="index.html">Home</a></li>
                           <li><a href="products.html">Products</a></li>
                           <li><a href="gallery.html">Gallery</a></li>
-                          <li><a href="about.html">About</a></li>
                           <li class="active"><a href="contact.html">Contact</a></li>
                       </ul>
                   </div>
@@ -124,7 +123,7 @@
                   </tr>
               </table>
           </div>
-          <div class="googlemap"><iframe width="647" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+          <div class="googlemap"><iframe id="gframe" width="647" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                   src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=8650+Spicewood+Springs+Road,+Austin,+TX&amp;aq=0&amp;oq=8650+&amp;sll=31.168934,-100.076842&amp;sspn=11.28691,21.621094&amp;ie=UTF8&amp;hq=&amp;hnear=8650+Spicewood+Springs+Rd,+Austin,+Texas+78759&amp;ll=30.432184,-97.770869&amp;spn=0.011119,0.021114&amp;t=m&amp;z=14&amp;output=embed"></iframe><br
               /><small><a
                       href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=8650+Spicewood+Springs+Road,+Austin,+TX&amp;aq=0&amp;oq=8650+&amp;sll=31.168934,-100.076842&amp;sspn=11.28691,21.621094&amp;ie=UTF8&amp;hq=&amp;hnear=8650+Spicewood+Springs+Rd,+Austin,+Texas+78759&amp;ll=30.432184,-97.770869&amp;spn=0.011119,0.021114&amp;t=m&amp;z=14"
@@ -142,19 +141,18 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
+    <script src="/assets/js/jquery-1.10.2.min.js"></script>
+    <script>
+    $(window).resize(function(){
+        if ($(window).width() < 500) {
+            $("#gframe").attr("width", 300);
+            $("#gframe").attr("height", 300);
+        } else if ($(window).width() < 980) {
+            $("#gframe").attr("width", 400);
+        } else {
+            $("#gframe").attr("width", 647);
+        }
+    });
+    </script>
   </body>
 </html>
