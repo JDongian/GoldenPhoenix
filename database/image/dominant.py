@@ -41,4 +41,4 @@ def analyze(f):
     peak = codes[index_max]
     colour = ''.join(chr(c) for c in peak).encode('hex')
     #print 'most frequent is %s (#%s)' % (peak, colour)
-    return colour[1:]
+    return colour
