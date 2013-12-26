@@ -138,6 +138,12 @@
                 'jacket': 0,
                 'child': 0,
                 'wedding': 0};
+    $("#partycat").parent().addClass("active");
+    if ($.inArray(Object.keys(page), location.hash.substr(1,20)) != -1) {
+        alert("using anchor.");
+        $(".cat.active").removeClass("active");
+        $(location.hash+"cat").parent().addClass("active");
+    }
     fillGallery(page[get_cat()]);
 
     function get_cat() {
@@ -197,9 +203,10 @@
                     description = data['results']['description'];
                     thumbdir = "/assets/img/gallery/thumbs/";
                     thumbname = data['results']['name'];
+                    price = data['results']['price'];
                     $("#gallery").append('<a href="'+imgdir+filename+
                                          '" data-lightbox="series" title="'+
-                                         description+
+                                         description+((price > 0) ? (" $"+price/100.):'')+
                                          '"><img src="'+
                                          thumbdir+
                                          thumbname+

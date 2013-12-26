@@ -9,10 +9,11 @@ c = get_cursor()
 
 @app.route('/<category>/<int:number>')
 def image(category, number):
-    result = list(fetch_image_db(c, category, number)[0])+[0,0]
+    result = list(fetch_image_db(c, category, number)[0])+[0]*4
     return jsonify({'results': {'name': result[0],
                                 'dir': result[1],
-                                'description': result[2]},
+                                'description': result[2],
+                                'price': result[3]},
                     'total': count_db(c, category)})
 
 if __name__ == '__main__':

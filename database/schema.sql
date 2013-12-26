@@ -6,6 +6,7 @@ CREATE TABLE gallery_images(
  filename       text,
  thumbfile      text,
  location       text,
- description    text
+ description    text,
+ price          int
 );
 

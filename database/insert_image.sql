@@ -5,7 +5,8 @@ INSERT INTO gallery_images(
  filename,
  thumbfile,
  location,
- description
+ description,
+ price
 ) VALUES (
     %(dress)s,
     %(color)s,
@@ -13,5 +14,6 @@ INSERT INTO gallery_images(
     %(filename)s,
     %(thumbfile)s,
     %(location)s,
-    %(description)s
+    %(description)s,
+    %(price)s
 );

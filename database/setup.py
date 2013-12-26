@@ -13,6 +13,18 @@ def matches(ig, f):
         if i[0] == '*' and re.findall("\.[^\.]+$", f)[0] == i[1:]:
             return True
 
+def get_description(f):
+    try:
+        return metadata[filename][3]
+    except:
+        return "No description."
+
+def get_price(f):
+    try:
+        return metadata[filename][2]
+    except:
+        return -1
+
 def get_dress(f):
     try:
         return metadata[filename][1]
@@ -28,7 +40,8 @@ def get_color(f):
 def parse_metadata():
     global metadata
     metadata = open(image_dir+'/METADATA').read()
-    lines = (l.split(' ') for l in metadata.split('\n')[:-1])
+    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\d+)\s+\"(.*)\"", l) for l in metadata.split('\n')[:-1])
+    lines = [l[0] for l in lines if l]
     metadata = {e[0]: e[1:] for e in lines}
 
 if __name__ == "__main__":
@@ -38,7 +51,6 @@ if __name__ == "__main__":
     delete_db(c)
     init_db(c)
     print("Database recreated.")
-    #dress = 0
     for path in os.walk(image_dir):
         if path[0].find('unused') != -1:
             continue
@@ -49,9 +61,4 @@ if __name__ == "__main__":
                 insert_db(c, get_dress(filename), get_color(filename),
                           re.findall('\w+$', path[0])[0], filename,
                           re.findall('assets.*$', path[0])[0],
-                          "No description.");
-                #insert_db(c, dress, get_color(path[0]+'/'+filename),
-                #          re.findall('\w+$', path[0])[0], filename,
-                #          re.findall('assets.*$', path[0])[0],
-                #          "No description.");
-                #dress += 1
+                          get_description(filename), get_price(filename));
