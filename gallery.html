@@ -156,8 +156,8 @@
         fillGallery(page[get_cat()]);
     });
 
-    $("#prev").click(function() {
-        //$(this).preventDefault()
+    $("#prev").click(function(e) {
+        e.preventDefault();
         if (!$("#prev").parent().hasClass("disabled")) {
             page[get_cat()]--;
             $("#next").parent().removeClass("disabled");
@@ -167,9 +167,10 @@
             clearGallery();
             fillGallery(page[get_cat()]);
         }
+        $("#prev").blur();
     });
-    $("#next").click(function() {
-        //$(this).preventDefault()
+    $("#next").click(function(e) {
+        e.preventDefault();
         if (!$("#next").parent().hasClass("disabled")) {
             page[get_cat()]++;
             $("#prev").parent().removeClass("disabled");
@@ -184,6 +185,7 @@
             clearGallery();
             fillGallery(page[get_cat()]);
         }
+        $("#next").blur();
     });
 
     function clearGallery() {
