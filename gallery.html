@@ -139,8 +139,7 @@
                 'child': 0,
                 'wedding': 0};
     $("#partycat").parent().addClass("active");
-    if ($.inArray(Object.keys(page), location.hash.substr(1,20)) != -1) {
-        alert("using anchor.");
+    if ($.inArray(location.hash.substr(1,20), Object.keys(page)) != -1) {
         $(".cat.active").removeClass("active");
         $(location.hash+"cat").parent().addClass("active");
     }
@@ -210,7 +209,7 @@
                                          '"><img src="'+
                                          thumbdir+
                                          thumbname+
-                                         '" class="img-polaroid" width=230></a>');
+                                         '" class="img-polaroid" width=236></a>');
                 }
             });
         }

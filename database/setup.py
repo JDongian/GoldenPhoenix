@@ -52,7 +52,7 @@ if __name__ == "__main__":
     init_db(c)
     print("Database recreated.")
     for path in os.walk(image_dir):
-        if path[0].find('unused') != -1:
+        if (path[0].find('unused') != -1) or (path[0].find('thumbs') != -1):
             continue
         else:
             for filename in path[2]:
