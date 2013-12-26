@@ -3,9 +3,9 @@ from dbtools import get_cursor, fetch_image_db, count_db
 app = Flask(__name__)
 c = get_cursor()
 
-@app.route('/<category>')
-def count(category, number):
-    return jsonify({'total': count_db(c, category)})
+#@app.route('/<category>')
+#def count(category, number):
+#    return jsonify({'total': count_db(c, category)})
 
 @app.route('/<category>/<int:number>')
 def image(category, number):

@@ -128,40 +128,35 @@
     <script src="../assets/js/bootstrap-tab.js"></script>
     <script type=text/javascript>
     var items_per_page = 8;
-    var page = 0;
-    fillGallery(page);
+    var page = {'party': 0,
+                'jacket': 0,
+                'child': 0,
+                'wedding': 0};
+    fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
 
     $("#partycat").click(function() {
+        $(".cat.active").removeClass("active")
         $("#partycat").parent().addClass("active");
-        $("#jacketcat").parent().removeClass("active");
-        $("#childcat").parent().removeClass("active");
-        $("#weddingcat").parent().removeClass("active");
         clearGallery();
-        fillGallery(page);
+        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
     });
     $("#jacketcat").click(function() {
-        $("#partycat").parent().removeClass("active");
+        $(".cat.active").removeClass("active")
         $("#jacketcat").parent().addClass("active");
-        $("#childcat").parent().removeClass("active");
-        $("#weddingcat").parent().removeClass("active");
         clearGallery();
-        fillGallery(page);
+        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
     });
     $("#childcat").click(function() {
-        $("#partycat").parent().removeClass("active");
-        $("#jacketcat").parent().removeClass("active");
+        $(".cat.active").removeClass("active")
         $("#childcat").parent().addClass("active");
-        $("#weddingcat").parent().removeClass("active");
         clearGallery();
-        fillGallery(page);
+        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
     });
     $("#weddingcat").click(function() {
-        $("#partycat").parent().removeClass("active");
-        $("#jacketcat").parent().removeClass("active");
-        $("#childcat").parent().removeClass("active");
+        $(".cat.active").removeClass("active")
         $("#weddingcat").parent().addClass("active");
         clearGallery();
-        fillGallery(page);
+        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
     });
 
     $("#prev").click(function() {
@@ -178,26 +173,21 @@
         }*/
     });
     $("#next").click(function() {
-        //DEBUG
-        page++;
-        clearGallery();
-        fillGallery(page);
-        //
-
         //$(this).preventDefault()
-            /*
-        if (!$(this).class("disabled")) {
-            page++;
-            $(".disabled li").removeClass("disabled")
-            $.get("data.php", {'cat': $(".active li > a").html().toLowerCase()},
+        if (!$("#next").parent().hasClass("disabled")) {
+            page[$(".cat.active > a").html().toLowerCase()]++;
+            $("#prev").parent().removeClass("disabled");
+            $.get("data.php", {'cat': $(".cat.active > a").html().toLowerCase(),
+                               'index': 0},
             function(data) {
-                if((page+1)*items_per_page > (int)data) {
-                    $("#next < li").addClass("disabled");
+                data = JSON.parse(data);
+                if((page[$(".cat.active > a").html().toLowerCase()]+1)*items_per_page > data['total']) {
+                    $("#next").parent().addClass("disabled");
                 }
             });
             clearGallery();
-            fillGallery(page);
-        }*/
+            fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
+        }
     });
 
     function clearGallery() {
