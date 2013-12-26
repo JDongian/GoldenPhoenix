@@ -215,8 +215,7 @@
         }
     }
 
-    //Fluid Layout - nav
-    $(window).resize(function(){
+    function flow() {
         if ($(window).width() < 702) {
             $("#catnav").removeClass("tabs-left");
             $("#cattabs").removeClass("nav-tabs");
@@ -226,7 +225,10 @@
             $("#cattabs").removeClass("nav-pills");
             $("#cattabs").addClass("nav-tabs");
         }
-    });
+    }
+    flow();
+    //Fluid Layout - nav
+    $(window).resize(flow());
     </script>
   </body>
 </html>
