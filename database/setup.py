@@ -1,7 +1,12 @@
 import os
 import re
+import sys
+import imp
 from dbtools import get_cursor, delete_db, init_db, insert_db
+dominant = imp.load_source('dominant', './image/dominant.py')
+classifier = imp.load_source('classifier', './image/classifier.py')
 
+color_ref = classifier.get_ref()
 image_dir = "/srv/GoldenPhoenix/assets/img/gallery"
 ignore = ("METADATA", "*.swp")
 metadata = {}
@@ -31,11 +36,14 @@ def get_dress(f):
     except:
         return "unknown"
 
-def get_color(f):
+def get_color(f, path):
     try:
         return metadata[filename][0]
     except:
-        return "unknown"
+        c = classifier.best_match(int(dominant.analyze(path+'/'+f), 16), color_ref)
+        print "Calculated best color match:", c, '            \r',
+        sys.stdout.flush()
+        return c
 
 def parse_metadata():
     global metadata
@@ -58,7 +66,7 @@ if __name__ == "__main__":
             for filename in path[2]:
                 if matches(ignore, filename):
                     continue
-                insert_db(c, get_dress(filename), get_color(filename),
+                insert_db(c, get_dress(filename), get_color(filename, path[0]),
                           re.findall('\w+$', path[0])[0], filename,
                           re.findall('assets.*$', path[0])[0],
                           get_description(filename), get_price(filename));
