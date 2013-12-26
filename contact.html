@@ -145,12 +145,14 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <script>
+    //Fluid layout - iframe
     $(window).resize(function(){
-        if ($(window).width() < 500) {
-            $("#gframe").attr("width", 300);
-            $("#gframe").attr("height", 300);
-        } else if ($(window).width() < 980) {
-            $("#gframe").attr("width", 400);
+        if ($(window).width() < 590) {
+            $("#gframe").attr("width", $(window).width()-50);
+        } else if ($(window).width() < 746) {
+            $("#gframe").attr("width", 421+($(window).width()-750));
+        } else if ($(window).width() < 964) {
+            $("#gframe").attr("width", 471);
         } else {
             $("#gframe").attr("width", 647);
         }

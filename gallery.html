@@ -78,31 +78,21 @@
               </div>
           </div>
       </div>
-      <div class="tabbable tabs-left">
-          <ul class="nav nav-tabs">
-              <li class="active"><a href="#lA" data-toggle="tab">Dresses</a></li>
-              <li><a href="#lB" data-toggle="tab">Pictures</a></li>
-              <li><a href="#lC" data-toggle="tab">Miscelleneous</a></li>
+      <div id="catnav" class="tabbable tabs-left">
+          <ul id="cattabs" class="nav nav-tabs">
+              <li class="active cat"><a href="#party" id="partycat">Party Dresses</a></li>
+              <li class="cat"><a href="#jacket" id="jacketcat">Tang Jackets</a></li>
+              <li class="cat"><a href="#child" id="childcat">Children's Clothing</a></li>
+              <li class="cat"><a href="#wedding" id="weddingcat">Wedding Gowns</a></li>
+              <li class="cat"><a href="#picture" id="picturecat">Embroidered Pictures</a></li>
           </ul>
           <div class="tab-content">
-              <div class="tab-pane active" id="lA">
-                  <!--<h3>Dress Collection</h3>-->
-                  <ul class="nav nav-pills">
-                      <li class="active cat">
-                      <a href="#" id="partycat">Party</a>
-                      </li>
-                      <li class="cat"><a href="#" id="jacketcat">Jacket</a></li>
-                      <li class="cat"><a href="#" id="childcat">Child</a></li>
-                      <li class="cat"><a href="#" id="weddingcat">Wedding</a></li>
-                  </ul>
+              <div class="tab-pane active" id="party">
                   <ul class="pager">
                       <li class="previous disabled">
                       <a id="prev" href="#">Previous</a>
                       </li>
                       <li class="previous">
-                      <!--<button class="btn btn-small" type="button">Jump to page</button>
-                      <input class="span1" type="number" placeholder="1">-->
-
                       </li>
                       <li class="next">
                       <a id="next" href="#">Next</a>
@@ -110,12 +100,28 @@
                   </ul>
                   <div id="gallery">
                   </div>
-                  
               </div>
-              <div class="tab-pane" id="lB">
-                  <p>Pictures</p>
+              <div class="tab-pane" id="jacket">
+                  <ul class="pager">
+                      <li class="previous disabled">
+                      <a id="prev" href="#">Previous</a>
+                      </li>
+                      <li class="previous">
+                      </li>
+                      <li class="next">
+                      <a id="next" href="#">Next</a>
+                      </li>
+                  </ul>
+                  <div id="gallery">
+                  </div>
               </div>
-              <div class="tab-pane" id="lC">
+              <div class="tab-pane" id="child">
+                  <p>Misc</p>
+              </div>
+              <div class="tab-pane" id="wedding">
+                  <p>Misc</p>
+              </div>
+              <div class="tab-pane" id="picture">
                   <p>Misc</p>
               </div>
           </div>
@@ -132,61 +138,46 @@
                 'jacket': 0,
                 'child': 0,
                 'wedding': 0};
-    fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
+    fillGallery(page[get_cat()]);
 
-    $("#partycat").click(function() {
-        $(".cat.active").removeClass("active")
-        $("#partycat").parent().addClass("active");
+    function get_cat() {
+        return $(".cat.active > a").attr("id").substring(0, $(".cat.active > a").attr("id").length-3);
+    }
+
+    $(".cat > a").click(function() {
+        $(".cat.active").removeClass("active");
+        $(this).parent().addClass("active");
         clearGallery();
-        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
-    });
-    $("#jacketcat").click(function() {
-        $(".cat.active").removeClass("active")
-        $("#jacketcat").parent().addClass("active");
-        clearGallery();
-        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
-    });
-    $("#childcat").click(function() {
-        $(".cat.active").removeClass("active")
-        $("#childcat").parent().addClass("active");
-        clearGallery();
-        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
-    });
-    $("#weddingcat").click(function() {
-        $(".cat.active").removeClass("active")
-        $("#weddingcat").parent().addClass("active");
-        clearGallery();
-        fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
+        fillGallery(page[get_cat()]);
     });
 
     $("#prev").click(function() {
         //$(this).preventDefault()
-            /*
-        if (!$(this).class("disabled")) {
-            page--;
-            $(".disabled li").removeClass("disabled");
+        if (!$("#prev").parent().hasClass("disabled")) {
+            page[get_cat()]--;
+            $("#next").parent().removeClass("disabled");
             if (page == 0) {
-                $("#prev < li").addClass("disabled")
+                $("#prev").parent().addClass("disabled")
             }
             clearGallery();
-            fillGallery(page);
-        }*/
+            fillGallery(page[get_cat()]);
+        }
     });
     $("#next").click(function() {
         //$(this).preventDefault()
         if (!$("#next").parent().hasClass("disabled")) {
-            page[$(".cat.active > a").html().toLowerCase()]++;
+            page[get_cat()]++;
             $("#prev").parent().removeClass("disabled");
-            $.get("data.php", {'cat': $(".cat.active > a").html().toLowerCase(),
+            $.get("data.php", {'cat': get_cat(),
                                'index': 0},
             function(data) {
                 data = JSON.parse(data);
-                if((page[$(".cat.active > a").html().toLowerCase()]+1)*items_per_page > data['total']) {
+                if((page[get_cat()]+1)*items_per_page > data['total']) {
                     $("#next").parent().addClass("disabled");
                 }
             });
             clearGallery();
-            fillGallery(page[$(".cat.active > a").html().toLowerCase()]);
+            fillGallery(page[get_cat()]);
         }
     });
 
@@ -196,7 +187,7 @@
 
     function fillGallery(p) {
         for (var i = 0; i < items_per_page; ++i) {
-            $.get("data.php", {'cat': $(".cat.active > a").html().toLowerCase(),
+            $.get("data.php", {'cat': get_cat(),
                                'index': i+p*items_per_page},
             function(data) {
                 data = JSON.parse(data);
@@ -212,11 +203,24 @@
                                          '"><img src="'+
                                          thumbdir+
                                          thumbname+
-                                         '" class="img-polaroid" width=240></a>');
+                                         '" class="img-polaroid" width=230></a>');
                 }
             });
         }
     }
+
+    //Fluid Layout - nav
+    $(window).resize(function(){
+        if ($(window).width() < 702) {
+            $("#catnav").removeClass("tabs-left");
+            $("#cattabs").removeClass("nav-tabs");
+            $("#cattabs").addClass("nav-pills");
+        } else {
+            $("#catnav").addClass("tabs-left");
+            $("#cattabs").removeClass("nav-pills");
+            $("#cattabs").addClass("nav-tabs");
+        }
+    });
     </script>
   </body>
 </html>
