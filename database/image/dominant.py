@@ -26,7 +26,7 @@ def analyze(f):
     """Return the hex value of the most dominant color in the image.
     """
     im = crop(f)
-    im = im.resize((128, 128))
+    im = im.resize((64, 64))
     ar = scipy.misc.fromimage(im)
     shape = ar.shape
     ar = ar.reshape(scipy.product(shape[:2]), shape[2])
