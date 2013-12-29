@@ -25,15 +25,11 @@ def init_db(c):
     """
     c.execute(open("schema.sql", 'r').read())
 
-def insert_db(c, dress, color, category, filename, location, description, price):
-    data = {'dress': dress,
-            'color': color,
-            'category': category,
-            'filename': filename,
-            'thumbfile': filename,
-            'location': location,
-            'description': description,
-            'price': price}
+def insert_db(c, data):
+    if data['phototype'] == 'NULL':
+        data['phototype'] = None
+    if data['category'] == 'NULL':
+        data['category'] = None
     c.execute(open("insert_image.sql", 'r').read(), data)
 
 def fetch_image_db(c, category, offset, limit=1):

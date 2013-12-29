@@ -197,23 +197,23 @@
             $.get("data.php", {'cat': get_cat(),
                                'index': i+p*items_per_page},
             function(data) {
-                data = JSON.parse(data);
+                //alert(JSON.stringify(data));
                 if (data['total']) {
-                    imgdir = data['results']['dir']+'/';
-                    filename = data['results']['name'];
+                    img_location = "/"+data['results']['loc']+"/";
+                    filename = data['results']['filename'];
                     description = data['results']['description'];
                     thumbdir = "/assets/img/gallery/thumbs/";
-                    thumbname = data['results']['name'];
+                    thumbname = data['results']['thumbname'];
                     price = data['results']['price'];
-                    $("#gallery").append('<a href="'+imgdir+filename+
-                                         '" data-lightbox="series" title="'+
+                    $("#gallery").append('<a href="' + img_location + filename +
+                                         '" data-lightbox="series" title="' +
                                          description+((price > 0) ? (" $"+price/100.):'')+
-                                         '"><img src="'+
-                                         thumbdir+
-                                         thumbname+
+                                         '"><img src=\"' +
+                                         thumbdir +
+                                         thumbname +
                                          '" class="img-polaroid" width=236></a>');
                 }
-            });
+            }, "json");
         }
     }
 

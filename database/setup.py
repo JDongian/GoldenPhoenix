@@ -3,6 +3,7 @@ import re
 import sys
 import imp
 from dbtools import get_cursor, delete_db, init_db, insert_db
+#load image classifier tools
 dominant = imp.load_source('dominant', './image/dominant.py')
 classifier = imp.load_source('classifier', './image/classifier.py')
 
@@ -18,29 +19,11 @@ def matches(ig, f):
         if i[0] == '*' and re.findall("\.[^\.]+$", f)[0] == i[1:]:
             return True
 
-def get_description(f):
-    try:
-        return metadata[filename][3]
-    except:
-        return "No description."
-
-def get_price(f):
-    try:
-        return metadata[filename][2]
-    except:
-        return -1
-
-def get_dress(f):
-    try:
-        return metadata[filename][1]
-    except:
-        return "unknown"
-
-def get_color(f, path):
+def get_color(path_to_file):
     try:
         return metadata[filename][0]
     except:
-        c = classifier.best_match(int(dominant.analyze(path+'/'+f), 16), color_ref)
+        c = classifier.best_match(int(dominant.analyze(path_to_file), 16), color_ref)
         print "Calculated best color match:", c, '            \r',
         sys.stdout.flush()
         return c
@@ -48,12 +31,21 @@ def get_color(f, path):
 def parse_metadata():
     global metadata
     metadata = open(image_dir+'/METADATA').read()
-    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\d+)\s+\"(.*)\"", l) for l in metadata.split('\n')[:-1])
-    lines = [l[0] for l in lines if l]
-    metadata = {e[0]: e[1:] for e in lines}
+    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+\"(.*)\"\s+(\d+)", l) for l in metadata.split('\n')[:-1])
+    lines = [l[0] for l in lines if l and l[0][0][0] != '#']
+    #TODO: if != 'NULL' else None
+    metadata = { e[0]: { 'filename': e[0],
+                         'dress_id': e[1],
+                         'category': e[2],
+                         'color': e[3],
+                         'phototype': e[4],
+                         'thumbname': e[5],
+                         'description': e[6],
+                         'price': e[7] } for e in lines }
 
 if __name__ == "__main__":
     parse_metadata()
+    print("Metadata parsed for {} valid entries.".format(len(metadata.keys())))
     c = get_cursor()
     #Delete the database and recreate it using the existing schema.
     delete_db(c)
@@ -66,7 +58,18 @@ if __name__ == "__main__":
             for filename in path[2]:
                 if matches(ignore, filename):
                     continue
-                insert_db(c, get_dress(filename), get_color(filename, path[0]),
-                          re.findall('\w+$', path[0])[0], filename,
-                          re.findall('assets.*$', path[0])[0],
-                          get_description(filename), get_price(filename));
+                if filename in metadata.keys():
+                    data = { 'dress_id': metadata[filename].get('dress_id', 'NULL'),
+                             'category': metadata[filename].get('category', 'NULL'),
+                             'color': metadata[filename].get('color', 'NULL'),
+                             'phototype': metadata[filename].get('phototype', 'NULL'),
+                             'filename': metadata[filename].get('filename', 'NULL'),
+                             'thumbname': metadata[filename].get('thumbname', 'NULL'),
+                             'location': re.findall('assets.*$', path[0])[0],
+                             'description': metadata[filename].get('description', 'NULL'),
+                             'price': metadata[filename].get('price', 'NULL') }
+                    if data['color'] == 'NULL':
+                        data['color'] = get_color(path[0]+'/'+data['filename'])
+                    insert_db(c, data)
+                else:
+                    pass
