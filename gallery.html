@@ -154,6 +154,17 @@
         $(this).parent().addClass("active");
         clearGallery();
         fillGallery(page[get_cat()]);
+        if (page[get_cat()] <= 0) {
+            $("#prev").parent().addClass("disabled");
+        }
+        $("#next").parent().removeClass("disabled");
+        $.get("data.php", {'cat': get_cat(),
+                           'index': 0},
+        function(data) {
+            if((page[get_cat()]+1)*items_per_page > data['total']) {
+                $("#next").parent().addClass("disabled");
+            }
+        }, "json");
     });
 
     $("#prev").click(function(e) {
@@ -161,8 +172,8 @@
         if (!$("#prev").parent().hasClass("disabled")) {
             page[get_cat()]--;
             $("#next").parent().removeClass("disabled");
-            if (page == 0) {
-                $("#prev").parent().addClass("disabled")
+            if (page[get_cat()] <= 0) {
+                $(this).parent().addClass("disabled")
             }
             clearGallery();
             fillGallery(page[get_cat()]);
@@ -177,11 +188,10 @@
             $.get("data.php", {'cat': get_cat(),
                                'index': 0},
             function(data) {
-                data = JSON.parse(data);
                 if((page[get_cat()]+1)*items_per_page > data['total']) {
                     $("#next").parent().addClass("disabled");
                 }
-            });
+            }, "json");
             clearGallery();
             fillGallery(page[get_cat()]);
         }
