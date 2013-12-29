@@ -9,6 +9,6 @@ SELECT
 ,price
 FROM gallery_images
 WHERE category = %(category)s
-ORDER BY color, dress_id, image_id DESC
+ORDER BY color DESC, dress_id, image_id
 LIMIT %(limit)s
 OFFSET %(i)s;

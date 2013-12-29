@@ -31,8 +31,8 @@ def get_color(path_to_file):
 def parse_metadata():
     global metadata
     metadata = open(image_dir+'/METADATA').read()
-    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+\"(.*)\"\s+(\d+)", l) for l in metadata.split('\n')[:-1])
-    lines = [l[0] for l in lines if l and l[0][0][0] != '#']
+    lines = (re.findall("([^#\s]+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+\"(.*)\"\s+(\d+)", l) for l in metadata.split('\n')[:-1])
+    lines = [l[0] for l in lines if l and l[0][0] != '#']
     #TODO: if != 'NULL' else None
     metadata = { e[0]: { 'filename': e[0],
                          'dress_id': e[1],
