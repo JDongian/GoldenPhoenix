@@ -100,7 +100,8 @@
                   </ul>
                   <div id="gallery">
                   </div>
-                  <div id="pageno" style="width: 8%; margin: 0 auto; font-size: 16px;">Page 0/1</div>
+                  <br>
+                  <div id="pageno" style="width: 8%; margin: 0 auto; font-size: 16px;">Page 0/0</div>
               </div>
               <div class="tab-pane" id="jacket">
               </div>
@@ -117,7 +118,6 @@
     </div> <!-- /container -->
     <script src="../assets/js/jquery-1.10.2.min.js"></script>
     <script src="../assets/js/lightbox-2.6.min.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
     <script type=text/javascript>
     var items_per_page = 8;
     var page = {'party': 0,
@@ -132,7 +132,7 @@
     fillGallery(page[get_cat()]);
 
     function update_page(data) {
-        $("#pageno").html("Page "+(page[get_cat()]+1)+"/"+Math.floor(data['total']/items_per_page));
+        $("#pageno").html("Page "+(page[get_cat()]+1)+"/"+Math.ceil(data['total']/items_per_page));
     }
 
     $.get("data.php", {'cat': get_cat(),
@@ -206,7 +206,6 @@
             $.get("data.php", {'cat': get_cat(),
                                'index': i+p*items_per_page},
             function(data) {
-                //alert(JSON.stringify(data));
                 if (data['total']) {
                     img_location = "/"+data['results']['loc']+"/";
                     filename = data['results']['filename'];

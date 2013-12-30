@@ -36,7 +36,7 @@ def parse_metadata():
     lines = [l[0] for l in lines if l]
     #TODO: if != 'NULL' else None
     metadata = { e[0]: { 'filename': e[0],
-                         'dress_id': e[1],
+                         'dress_id': int(e[1]),
                          'category': e[2],
                          'color': e[3],
                          'phototype': e[4],

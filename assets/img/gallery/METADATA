@@ -17,109 +17,212 @@
 # Use NULL or 0 for unknown values.
 
 # Jackets
-jacket0.jpg     jwbr2   jacket  white   full    jacket0.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket10.jpg    jrf2    jacket  red     full    jacket10.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket11.jpg    jwbr3   jacket  white   full    jacket11.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket12.jpg    jgk4    jacket  green   full    jacket12.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket13.jpg    jgobr5  jacket  gold    full    jacket13.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket14.jpg    jrb6    jacket  red     full    jacket14.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket15.jpg    jbk7    jacket  black   full    jacket15.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket16.jpg    jbf8    jacket  blue    full    jacket16.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket17.jpg    jrk9    jacket  red     full    jacket17.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket18.jpg    jrk10   jacket  red     full    jacket18.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket19.jpg    jrk11   jacket  red     full    jacket19.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket1.jpg     jgk12   jacket  green   full    jacket1.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket2.jpg     jgob13  jacket  gold    full    jacket2.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket0.jpg     1       jacket  white   full    jacket0.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket10.jpg    2       jacket  red     full    jacket10.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket11.jpg    3       jacket  white   full    jacket11.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket12.jpg    4       jacket  green   full    jacket12.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket13.jpg    5       jacket  gold    full    jacket13.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket14.jpg    6       jacket  red     full    jacket14.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket15.jpg    7       jacket  black   full    jacket15.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket16.jpg    8       jacket  blue    full    jacket16.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket17.jpg    9       jacket  red     full    jacket17.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket18.jpg    10      jacket  red     full    jacket18.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket19.jpg    11      jacket  red     full    jacket19.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket1.jpg     12      jacket  green   full    jacket1.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket2.jpg     13      jacket  gold    full    jacket2.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
 # jacket3.jpg     jgof14  jacket  gold    full    jacket3.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket4.jpg     jgof14  jacket  gold    full    jacket4.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket5.jpg     jbbr15  jacket  blue    full    jacket5.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket6.jpg     jgof16  jacket  gold    full    jacket6.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket4.jpg     14      jacket  gold    full    jacket4.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket5.jpg     15      jacket  blue    full    jacket5.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket6.jpg     16      jacket  gold    full    jacket6.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
 # jacket7.jpg     jrk17   jacket  red     full    jacket7.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket8.jpg     jrk17   jacket  red     full    jacket8.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-jacket9.jpg     jbf18   jacket  blue    full    jacket9.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-party108.jpg    jp1     jacket  unk     full    party108.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
-party109.jpg    jp2     jacket  unk     full    party109.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995  
+jacket8.jpg     17      jacket  red     full    jacket8.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+jacket9.jpg     18      jacket  blue    full    jacket9.jpg     "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+party108.jpg    19      jacket  unk     full    party108.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995
+party109.jpg    20      jacket  unk     full    party109.jpg    "A comfortable silk jacket. Original: $129.99. Sale:"   5995  
 
 # Dresses
-2549.jpg        d1      party   red     NULL    2549.jpg    "No description."   0000
-2556.jpg        d1      party   red     NULL    2556.jpg    "No description."   0000
+2549.jpg        1      party   red     NULL    2549.jpg         "No description."   0000
+2556.jpg        1      party   red     NULL    2556.jpg         "No description."   0000
 
-2565.jpg        d2      party   red     NULL    2565.jpg    "No description."   0000
-2569.jpg        d2      party   red     NULL    2569.jpg    "No description."   0000
+2565.jpg        2      party   red     NULL    2565.jpg    "No description."   0000
+2569.jpg        2      party   red     NULL    2569.jpg    "No description."   0000
 
-2579.jpg        d3      party   red     NULL    2579.jpg    "No description."   0000
-2581.jpg        d3      party   red     NULL    2581.jpg    "No description."   0000
+2579.jpg        3      party   red     NULL    2579.jpg    "No description."   0000
+2581.jpg        3      party   red     NULL    2581.jpg    "No description."   0000
 
-2586.jpg        d4      party   red     NULL    2586.jpg    "No description."   0000
-2590.jpg        d4      party   red     NULL    2590.jpg    "No description."   0000
+2586.jpg        4      party   red     NULL    2586.jpg    "No description."   0000
+2590.jpg        4      party   red     NULL    2590.jpg    "No description."   0000
 
-2605.jpg        d5      party   red     NULL    2605.jpg    "No description."   0000
-2606.jpg        d5      party   red     NULL    2606.jpg    "No description."   0000
+2605.jpg        5      party   red     NULL    2605.jpg    "No description."   0000
+2606.jpg        5      party   red     NULL    2606.jpg    "No description."   0000
 
-2613.jpg        d7      party   red     NULL    2613.jpg    "No description."   0000
-2616.jpg        d7      party   red     NULL    2616.jpg    "No description."   0000
+2613.jpg        7      party   red     NULL    2613.jpg    "No description."   0000
+2616.jpg        7      party   red     NULL    2616.jpg    "No description."   0000
 
-2624.jpg        d8      party   red     NULL    2624.jpg    "No description."   0000
-2630.jpg        d8      party   red     NULL    2630.jpg    "No description."   0000
+2624.jpg        8      party   red     NULL    2624.jpg    "No description."   0000
+2630.jpg        8      party   red     NULL    2630.jpg    "No description."   0000
 
-2641.jpg        d9      party   red     NULL    2641.jpg    "No description."   0000
-2643.jpg        d9      party   red     NULL    2643.jpg    "No description."   0000
+2641.jpg        9      party   red     NULL    2641.jpg    "No description."   0000
+2643.jpg        9      party   red     NULL    2643.jpg    "No description."   0000
 
-2654.jpg        d10     party   red     NULL    2654.jpg    "No description."   0000
-2649.jpg        d10     party   red     NULL    2649.jpg    "No description."   0000
+party101.jpg    10     party   red     NULL    party101.jpg "No description."   0000
+party100.jpg    10     party   red     NULL    party100.jpg "No description."   0000
 
-2658.jpg        d11     party   red     NULL    2658.jpg    "No description."   0000
-2665.jpg        d11     party   red     NULL    2665.jpg    "No description."   0000
+party97.jpg     11     party   red     NULL    party97.jpg  "No description."   0000
+party98.jpg     11     party   red     NULL    party98.jpg  "No description."   0000
 
-2670.jpg        d12     party   red     NULL    2670.jpg    "No description."   0000
-2673.jpg        d12     party   red     NULL    2673.jpg    "No description."   0000
+party103.jpg    12     party   red     NULL    party103.jpg "No description."   0000
+party102.jpg    12     party   red     NULL    party102.jpg "No description."   0000
 
-2677.jpg        d13     party   red     NULL    2677.jpg    "No description."   0000
-2678.jpg        d13     party   red     NULL    2678.jpg    "No description."   0000
+party105.jpg    13     party   red     NULL    party105.jpg "No description."   0000
+party20.jpg     13     party   red     NULL    party20.jpg  "No description."   0000
 
-2684.jpg        d14     party   red     NULL    2684.jpg    "No description."   0000
-2690.jpg        d14     party   red     NULL    2690.jpg    "No description."   0000
+party106.jpg    10     party   red     NULL    party106.jpg "No description."   0000
+party107.jpg    10     party   red     NULL    party107.jpg "No description."   0000
+                            
+2654.jpg        14     party   red     NULL    2654.jpg    "No description."   0000
+2649.jpg        14     party   red     NULL    2649.jpg    "No description."   0000
+                            
+2658.jpg        15     party   red     NULL    2658.jpg    "No description."   0000
+2665.jpg        15     party   red     NULL    2665.jpg    "No description."   0000
+                            
+2670.jpg        16     party   red     NULL    2670.jpg    "No description."   0000
+2673.jpg        16     party   red     NULL    2673.jpg    "No description."   0000
+                            
+2677.jpg        17     party   red     NULL    2677.jpg    "No description."   0000
+2678.jpg        17     party   red     NULL    2678.jpg    "No description."   0000
+                            
+2684.jpg        18     party   red     NULL    2684.jpg    "No description."   0000
+2690.jpg        18     party   red     NULL    2690.jpg    "No description."   0000
+                            
+2697.jpg        20     party   red     NULL    2697.jpg    "No description."   0000
+2700.jpg        20     party   red     NULL    2700.jpg    "No description."   0000
+                            
+2705.jpg        21     party   red     NULL    2705.jpg    "No description."   0000
+2707.jpg        21     party   red     NULL    2707.jpg    "No description."   0000
+                            
+2717.jpg        22     party   red     NULL    2717.jpg    "No description."   0000
+2721.jpg        22     party   red     NULL    2721.jpg    "No description."   0000
+                            
+2731.jpg        23     party   red     NULL    2731.jpg    "No description."   0000
+2734.jpg        23     party   red     NULL    2734.jpg    "No description."   0000
 
-2697.jpg        d15     party   red     NULL    2697.jpg    "No description."   0000
-2700.jpg        d15     party   red     NULL    2700.jpg    "No description."   0000
+#embroidered
+1852.jpg        24     party    red     NULL    1852.jpg        "No description."   0000
+2276.jpg        24     party    red     NULL    2276.jpg        "No description."   0000
+                                                                                        
+2039.jpg        25     party    red     NULL    2039.jpg        "No description."   0000
+2251.jpg        25     party    red     NULL    2251.jpg        "No description."   0000
+                                                                                        
+2064.jpg        26     party    red     NULL    2064.jpg        "No description."   0000
+2291.jpg        26     party    red     NULL    2291.jpg        "No description."   0000
+                                                                                        
+party35.jpg     27     party    red     NULL    party35.jpg     "No description."   0000
+2331.jpg        27     party    red     NULL    2331.jpg        "No description."   0000
+                                                                                        
+party39.jpg     28     party    red     NULL    party39.jpg     "No description."   0000
+party38.jpg     28     party    red     NULL    party38.jpg     "No description."   0000
+                                                                                        
+party41.jpg     29     party    red     NULL    party41.jpg     "No description."   0000
+party40.jpg     29     party    red     NULL    party40.jpg     "No description."   0000
+                                                                                        
+party43.jpg     30     party    red     NULL    party43.jpg     "No description."   0000
+party42.jpg     30     party    red     NULL    party42.jpg     "No description."   0000
+                                                                                        
+party45.jpg     31     party    red     NULL    party45.jpg     "No description."   0000
+party44.jpg     31     party    red     NULL    party44.jpg     "No description."   0000
+                                                                                        
+party47.jpg     32     party    red     NULL    party47.jpg     "No description."   0000
+party46.jpg     32     party    red     NULL    party46.jpg     "No description."   0000
+                                                                
+party49.jpg     33     party    red     NULL    party49.jpg     "No description."   0000
+party48.jpg     33     party    red     NULL    party48.jpg     "No description."   0000
+                                                                                        
+party51.jpg     34     party    red     NULL    party51.jpg     "No description."   0000
+party50.jpg     34     party    red     NULL    party50.jpg     "No description."   0000
+                                                                                        
+party53.jpg     35     party    red     NULL    party53.jpg     "No description."   0000
+party54.jpg     35     party    red     NULL    party54.jpg     "No description."   0000
+                                                                                        
+party56.jpg     36     party    red     NULL    party56.jpg     "No description."   0000
+party55.jpg     36     party    red     NULL    party55.jpg     "No description."   0000
+                                                                                        
+party58.jpg     37     party    red     NULL    party58.jpg     "No description."   0000
+party57.jpg     37     party    red     NULL    party57.jpg     "No description."   0000
+                                                                                        
+party61.jpg     38     party    red     NULL    party61.jpg     "No description."   0000
+party62.jpg     38     party    red     NULL    party62.jpg     "No description."   0000
+                                                                                        
+party63.jpg     39     party    red     NULL    party63.jpg     "No description."   0000
+party64.jpg     39     party    red     NULL    party64.jpg     "No description."   0000
+                                                                                        
+party66.jpg     40     party    red     NULL    party66.jpg     "No description."   0000
+party67.jpg     40     party    red     NULL    party67.jpg     "No description."   0000
+                                                                                        
+party68.jpg     41     party    red     NULL    party68.jpg     "No description."   0000
+party69.jpg     41     party    red     NULL    party69.jpg     "No description."   0000
+                           
+2429.jpg        42     party   green   NULL    2429.jpg    "No description."   0000
+2432.jpg        42     party   green   NULL    2432.jpg    "No description."   0000
+                            
+2440.jpg        43     party   green   NULL    2440.jpg    "No description."   0000
+2444.jpg        43     party   green   NULL    2444.jpg    "No description."   0000
+                            
+2448.jpg        44     party   green   NULL    2448.jpg    "No description."   0000
+2456.jpg        44     party   green   NULL    2456.jpg    "No description."   0000
+                            
+2463.jpg        45     party   green   NULL    2463.jpg    "No description."   0000
+2466.jpg        45     party   green   NULL    2466.jpg    "No description."   0000
+                            
+2472.jpg        46     party   green   NULL    2472.jpg    "No description."   0000
+2477.jpg        46     party   green   NULL    2477.jpg    "No description."   0000
+                            
+2483.jpg        47     party   green   NULL    2483.jpg    "No description."   0000
+2486.jpg        47     party   green   NULL    2486.jpg    "No description."   0000
+                  
+2501.jpg        48     party   green   NULL    2501.jpg    "No description."   0000
+2494.jpg        48     party   green   NULL    2494.jpg    "No description."   0000
+                  
+2504.jpg        49     party   green   NULL    2504.jpg    "No description."   0000
+2513.jpg        49     party   green   NULL    2513.jpg    "No description."   0000
 
-2705.jpg        d16     party   red     NULL    2705.jpg    "No description."   0000
-2707.jpg        d16     party   red     NULL    2707.jpg    "No description."   0000
+2520.jpg        50     party   green   NULL    2520.jpg    "No description."   0000
+2524.jpg        50     party   green   NULL    2524.jpg    "No description."   0000
 
-2717.jpg        d17     party   red     NULL    2717.jpg    "No description."   0000
-2721.jpg        d17     party   red     NULL    2721.jpg    "No description."   0000
+2529.jpg        51     party   green   NULL    2529.jpg    "No description."   0000
+2534.jpg        51     party   green   NULL    2534.jpg    "No description."   0000
+                  
+party73.jpg     52     party    red     NULL    party73.jpg         "No description."   0000
+party72.jpg     52     party    red     NULL    party72.jpg         "No description."   0000
+                                                                                            
+party75.jpg     53     party    red     NULL    party75.jpg         "No description."   0000
+party74.jpg     53     party    red     NULL    party74.jpg         "No description."   0000
+                                                                                            
+party76.jpg     54     party    red     NULL    party76.jpg         "No description."   0000
+party77.jpg     54     party    red     NULL    party77.jpg         "No description."   0000
+                                                                                            
+party78.jpg     55     party    red     NULL    party78.jpg         "No description."   0000
+party80.jpg     55     party    red     NULL    party80.jpg         "No description."   0000
+                                                                                            
+party81.jpg     56     party    red     NULL    party81.jpg         "No description."   0000
+party82.jpg     56     party    red     NULL    party82.jpg         "No description."   0000
+                                                                    
+party83.jpg     57     party    red     NULL    party83.jpg         "No description."   0000
+party84.jpg     57     party    red     NULL    party84.jpg         "No description."   0000
+                                                                                            
+party85.jpg     58     party    red     NULL    party85.jpg         "No description."   0000
+party86.jpg     58     party    red     NULL    party86.jpg         "No description."   0000
+                                                                                            
+party87.jpg     59     party    red     NULL    party87.jpg         "No description."   0000
+party88.jpg     59     party    red     NULL    party88.jpg         "No description."   0000
+                                                                                            
+party89.jpg     60     party    red     NULL    party89.jpg         "No description."   0000
+party90.jpg     60     party    red     NULL    party90.jpg         "No description."   0000
+                                                                                            
+party93.jpg     61     party    red     NULL    party93.jpg         "No description."   0000
+party92.jpg     61     party    red     NULL    party92.jpg         "No description."   0000
+                                                                                            
+party95.jpg     62     party    red     NULL    party95.jpg         "No description."   0000
+party96.jpg     62     party    red     NULL    party96.jpg         "No description."   0000
 
-2731.jpg        d18     party   red     NULL    2731.jpg    "No description."   0000
-2734.jpg        d18     party   red     NULL    2734.jpg    "No description."   0000
-
-2429.jpg        d20     party   green   NULL    2429.jpg    "No description."   0000
-2432.jpg        d20     party   green   NULL    2432.jpg    "No description."   0000
-
-2440.jpg        d21     party   green   NULL    2440.jpg    "No description."   0000
-2444.jpg        d21     party   green   NULL    2444.jpg    "No description."   0000
-
-2448.jpg        d22     party   green   NULL    2448.jpg    "No description."   0000
-2456.jpg        d22     party   green   NULL    2456.jpg    "No description."   0000
-
-2463.jpg        d23     party   green   NULL    2463.jpg    "No description."   0000
-2466.jpg        d23     party   green   NULL    2466.jpg    "No description."   0000
-
-2472.jpg        d24     party   green   NULL    2472.jpg    "No description."   0000
-2477.jpg        d24     party   green   NULL    2477.jpg    "No description."   0000
-
-2483.jpg        d25     party   green   NULL    2483.jpg    "No description."   0000
-2486.jpg        d25     party   green   NULL    2486.jpg    "No description."   0000
-
-2501.jpg        d26     party   green   NULL    2501.jpg    "No description."   0000
-2494.jpg        d26     party   green   NULL    2494.jpg    "No description."   0000
-
-2504.jpg        d27     party   green   NULL    2504.jpg    "No description."   0000
-2513.jpg        d27     party   green   NULL    2513.jpg    "No description."   0000
-
-2520.jpg        d28     party   green   NULL    2520.jpg    "No description."   0000
-2524.jpg        d28     party   green   NULL    2524.jpg    "No description."   0000
-
-2529.jpg        d29     party   green   NULL    2529.jpg    "No description."   0000
-2534.jpg        d29     party   green   NULL    2534.jpg    "No description."   0000
-
-2741.jpg        d19     party   gold    NULL    2741.jpg    "No description."   0000
+2741.jpg        63     party   gold    NULL    2741.jpg    "No description."   0000
