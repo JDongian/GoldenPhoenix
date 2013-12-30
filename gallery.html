@@ -8,8 +8,8 @@
     <meta name="author" content="Joshua Dong">
     
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/lightbox.css" rel="stylesheet"/>
     <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/lightbox.css" rel="stylesheet"/>
     <style type="text/css">
       body {
         padding-top: 10px;
@@ -100,38 +100,15 @@
                   </ul>
                   <div id="gallery">
                   </div>
+                  <div id="pageno" style="width: 8%; margin: 0 auto; font-size: 16px;">Page 0/1</div>
               </div>
               <div class="tab-pane" id="jacket">
-                  <ul class="pager">
-                      <li class="previous disabled">
-                      <a id="prev" href="#">Previous</a>
-                      </li>
-                      <li class="previous">
-                      </li>
-                      <li class="next">
-                      <a id="next" href="#">Next</a>
-                      </li>
-                  </ul>
-                  <div id="gallery">
-                  </div>
               </div>
               <div class="tab-pane" id="child">
-                  <ul class="pager">
-                      <li class="previous disabled">
-                      <a id="prev" href="#">Previous</a>
-                      </li>
-                      <li class="previous">
-                      </li>
-                      <li class="next">
-                      <a id="next" href="#">Next</a>
-                      </li>
-                  </ul>
               </div>
               <div class="tab-pane" id="wedding">
-                  <p>Misc</p>
               </div>
               <div class="tab-pane" id="picture">
-                  <p>Misc</p>
               </div>
           </div>
       </div>
@@ -154,6 +131,14 @@
     }
     fillGallery(page[get_cat()]);
 
+    function update_page(data) {
+        $("#pageno").html("Page "+(page[get_cat()]+1)+"/"+Math.floor(data['total']/items_per_page));
+    }
+
+    $.get("data.php", {'cat': get_cat(),
+                       'index': 0},
+    update_page, "json");
+
     function get_cat() {
         return $(".cat.active > a").attr("id").substring(0, $(".cat.active > a").attr("id").length-3);
     }
@@ -170,6 +155,7 @@
         $.get("data.php", {'cat': get_cat(),
                            'index': 0},
         function(data) {
+            update_page(data);
             if((page[get_cat()]+1)*items_per_page > data['total']) {
                 $("#next").parent().addClass("disabled");
             }
@@ -178,12 +164,15 @@
 
     $("#prev").click(function(e) {
         e.preventDefault();
-        if (!$("#prev").parent().hasClass("disabled")) {
+        if (!$(this).parent().hasClass("disabled")) {
             page[get_cat()]--;
             $("#next").parent().removeClass("disabled");
             if (page[get_cat()] <= 0) {
                 $(this).parent().addClass("disabled")
             }
+            $.get("data.php", {'cat': get_cat(),
+                               'index': 0},
+            update_page, "json");
             clearGallery();
             fillGallery(page[get_cat()]);
         }
@@ -191,12 +180,13 @@
     });
     $("#next").click(function(e) {
         e.preventDefault();
-        if (!$("#next").parent().hasClass("disabled")) {
+        if (!$(this).parent().hasClass("disabled")) {
             page[get_cat()]++;
             $("#prev").parent().removeClass("disabled");
             $.get("data.php", {'cat': get_cat(),
                                'index': 0},
             function(data) {
+                update_page(data);
                 if((page[get_cat()]+1)*items_per_page > data['total']) {
                     $("#next").parent().addClass("disabled");
                 }
