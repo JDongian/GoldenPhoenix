@@ -1,4 +1,4 @@
-CREATE TYPE cat AS ENUM ('party', 'jacket', 'wedding', 'mens', 'child');
+CREATE TYPE cat AS ENUM ('party', 'jacket', 'wedding', 'mens', 'child', 'picture');
 CREATE TYPE photo AS ENUM ('portrait', 'full', 'half', 'back');
 CREATE TABLE gallery_images(
  image_id       serial  PRIMARY KEY

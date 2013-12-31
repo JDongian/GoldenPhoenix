@@ -123,12 +123,14 @@
     var page = {'party': 0,
                 'jacket': 0,
                 'child': 0,
-                'wedding': 0};
+                'wedding': 0,
+                'picture': 0};
     $("#partycat").parent().addClass("active");
     if ($.inArray(location.hash.substr(1,20), Object.keys(page)) != -1) {
         $(".cat.active").removeClass("active");
         $(location.hash+"cat").parent().addClass("active");
     }
+
     fillGallery(page[get_cat()]);
 
     function update_page(data) {
@@ -138,7 +140,13 @@
     $.get("data.php", {'cat': get_cat(),
                        'index': 0},
     update_page, "json");
-
+    
+    function set_gallery_size(size) {
+        for (var i = 0; i < size; ++i) {
+            $("#gallery").append('<div id="'+'img'+i+'" class="imgload" style="float:left;"></div>');
+        }
+    }
+ 
     function get_cat() {
         return $(".cat.active > a").attr("id").substring(0, $(".cat.active > a").attr("id").length-3);
     }
@@ -202,6 +210,37 @@
     }
 
     function fillGallery(p) {
+           //TODO find out how to not bad
+     //   /*
+        set_gallery_size(items_per_page);
+        for (var i = 0; i < items_per_page; ++i) {
+            $("#img"+i).load("data.php?cat="+get_cat()+"&index="+(i+p*items_per_page),
+            function() {
+                for (var i = 0; i < items_per_page; ++i) {
+                    try {
+                        var data = JSON.parse($("#img"+i).html());
+                        if (data['total']) {
+                            img_location = "/"+data['results']['loc']+"/";
+                            filename = data['results']['filename'];
+                            description = data['results']['description'];
+                            thumbdir = "/assets/img/gallery/thumbs/";
+                            thumbname = data['results']['thumbname'];
+                            price = data['results']['price'];
+                            $("#img"+i).html('<a href="' + img_location + filename +
+                                               '" data-lightbox="series" title="' +
+                                               description+((price > 0) ? (" $"+price/100.):'')+
+                                               '"><img src=\"' +
+                                               thumbdir +
+                                               thumbname +
+                                               '" class="img-polaroid" width=236></a>');
+                        }
+                    } catch (e) {}
+                }
+            });
+        }
+    }
+    //*/
+        /*
         for (var i = 0; i < items_per_page; ++i) {
             $.get("data.php", {'cat': get_cat(),
                                'index': i+p*items_per_page},
@@ -224,6 +263,7 @@
             }, "json");
         }
     }
+         */
 
     function flow() {
         if ($(window).width() < 702) {
