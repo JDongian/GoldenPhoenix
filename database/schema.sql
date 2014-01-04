@@ -4,6 +4,7 @@ CREATE TABLE gallery_images(
  image_id       serial  PRIMARY KEY
 ,dress_id       integer DEFAULT 0
 ,category       cat
+,gender         bool
 ,color          text    DEFAULT 'unknown'
 ,phototype      photo   DEFAULT 'half'
 ,filename       text

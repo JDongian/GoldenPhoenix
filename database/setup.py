@@ -31,18 +31,20 @@ def get_color(path_to_file):
 def parse_metadata():
     global metadata
     metadata = open(image_dir+'/METADATA').read()
-    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+\"(.*)\"\s+(\d+)", l) if\
+    #TODO: refactor the regex so that it checks number of \S+'s, not hardcoding cols.
+    lines = (re.findall("(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+\"(.*)\"\s+(\d+)", l) if\
              (l and l[0] != '#') else None for l in metadata.split('\n')[:-1])
     lines = [l[0] for l in lines if l]
     #TODO: if != 'NULL' else None
     metadata = { e[0]: { 'filename': e[0],
                          'dress_id': int(e[1]),
                          'category': e[2],
-                         'color': e[3],
-                         'phototype': e[4],
-                         'thumbname': e[5],
-                         'description': e[6],
-                         'price': e[7] } for e in lines }
+                         'gender': e[3] == "female",
+                         'color': e[4],
+                         'phototype': e[5],
+                         'thumbname': e[6],
+                         'description': e[7],
+                         'price': e[8] } for e in lines }
 
 if __name__ == "__main__":
     parse_metadata()
@@ -62,6 +64,7 @@ if __name__ == "__main__":
                 if filename in metadata.keys():
                     data = { 'dress_id': metadata[filename].get('dress_id', 'NULL'),
                              'category': metadata[filename].get('category', 'NULL'),
+                             'gender': metadata[filename].get('gender', 'NULL'),
                              'color': metadata[filename].get('color', 'NULL'),
                              'phototype': metadata[filename].get('phototype', 'NULL'),
                              'filename': metadata[filename].get('filename', 'NULL'),

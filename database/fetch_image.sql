@@ -1,5 +1,6 @@
 SELECT
  category
+,gender
 ,color
 ,phototype
 ,filename
@@ -9,6 +10,6 @@ SELECT
 ,price
 FROM gallery_images
 WHERE category = %(category)s
-ORDER BY color DESC, dress_id, image_id
+ORDER BY gender DESC, color DESC, dress_id, image_id
 LIMIT %(limit)s
 OFFSET %(i)s;

@@ -22,4 +22,4 @@ if __name__ == "__main__":
         autorotate("/srv/GoldenPhoenix/assets/img/gallery/party/", f)
     #for f in os.listdir(thumbdir):
     #    autorotate(thumbdir, f)
-    print "Done.              "
+    print "Done.                  "

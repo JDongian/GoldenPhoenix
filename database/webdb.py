@@ -12,13 +12,14 @@ def image(category, number):
     r = list(fetch_image_db(c, category, number)[0])+[0]*4
     print r
     return jsonify({'results': { 'category': r[0],
-                                 'color': r[1],
-                                 'phototype': r[2],
-                                 'filename': r[3],
-                                 'thumbname': r[4],
-                                 'loc': r[5],
-                                 'description': r[6],
-                                 'price': r[7] },
+                                 'gender': r[1],
+                                 'color': r[2],
+                                 'phototype': r[3],
+                                 'filename': r[4],
+                                 'thumbname': r[5],
+                                 'loc': r[6],
+                                 'description': r[7],
+                                 'price': r[8] },
                     'total': count_db(c, category)[0][0]})
 
 if __name__ == '__main__':

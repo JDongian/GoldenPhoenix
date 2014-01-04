@@ -1,6 +1,7 @@
 INSERT INTO gallery_images(
  dress_id
 ,category
+,gender
 ,color
 ,phototype
 ,filename
@@ -11,6 +12,7 @@ INSERT INTO gallery_images(
 ) VALUES (
  %(dress_id)s
 ,%(category)s
+,%(gender)s
 ,%(color)s
 ,%(phototype)s
 ,%(filename)s
