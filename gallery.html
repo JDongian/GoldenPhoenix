@@ -156,6 +156,7 @@
         $(this).parent().addClass("active");
         clearGallery();
         fillGallery(page[get_cat()]);
+        $("#prev").parent().removeClass("disabled");
         if (page[get_cat()] <= 0) {
             $("#prev").parent().addClass("disabled");
         }

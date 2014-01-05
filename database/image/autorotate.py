@@ -18,8 +18,9 @@ def autorotate(path, name):
         print 'Skipping:', name, '\r',
 
 if __name__ == "__main__":
-    for f in os.listdir("/srv/GoldenPhoenix/assets/img/gallery/party/"):
-        autorotate("/srv/GoldenPhoenix/assets/img/gallery/party/", f)
+    directory = raw_input("dir = ")
+    for f in os.listdir(directory):
+        autorotate(directory, f)
     #for f in os.listdir(thumbdir):
     #    autorotate(thumbdir, f)
     print "Done.                  "
