@@ -9,8 +9,8 @@ def asm(template, parts):
 if __name__ == "__main__":
     t = open("template.html").read()
     ipart = open("index.part").read()
-    gpart = open("index.part").read()
-    cpart = open("index.part").read()
+    gpart = open("gallery.part").read()
+    cpart = open("contact.part").read()
     open("index.html", 'w').write(asm(t, ipart))
-    open("index.html", 'w').write(asm(t, gpart))
-    open("index.html", 'w').write(asm(t, cpart))
+    open("gallery.html", 'w').write(asm(t, gpart))
+    open("contact.html", 'w').write(asm(t, cpart))
