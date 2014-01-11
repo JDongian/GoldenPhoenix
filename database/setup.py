@@ -4,8 +4,8 @@ import sys
 import imp
 from dbtools import get_cursor, delete_db, init_db, insert_db
 #load image classifier tools
-dominant = imp.load_source('dominant', './image/dominant.py')
-classifier = imp.load_source('classifier', './image/classifier.py')
+#dominant = imp.load_source('dominant', './image/dominant.py')
+#classifier = imp.load_source('classifier', './image/classifier.py')
 
 #color_ref = classifier.get_ref()
 image_dir = "/srv/GoldenPhoenix/assets/img/gallery"
